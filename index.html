@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff5f7" />
+    <meta name="description" content="Organiza tu día, vive a tu ritmo. Agenda, hábitos, entrenamientos y gastos en un solo lugar." />
+    <title>MiRitmo | Organiza tu día</title>
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=44" />
+  </head>
+  <body>
+    <section class="auth-screen" id="auth-screen" hidden aria-live="polite"></section>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#inicio" aria-label="MiRitmo, inicio">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>mi<span class="brand-accent">ritmo</span></span>
+        </a>
+
+        <div class="side-label">TU ESPACIO</div>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <button class="nav-link active" data-view="home"><span class="nav-icon" aria-hidden="true">⌂</span>Resumen</button>
+          <button class="nav-link" data-view="tasks"><span class="nav-icon" aria-hidden="true">▤</span>Agenda</button>
+          <button class="nav-link" data-view="habits"><span class="nav-icon" aria-hidden="true">◉</span>Hábitos</button>
+          <button class="nav-link" data-view="workouts"><span class="nav-icon" aria-hidden="true">↗</span>Entrenamiento</button>
+          <button class="nav-link" data-view="expenses"><span class="nav-icon" aria-hidden="true">$</span>Mis gastos</button>
+          <button class="nav-link" data-view="savings"><span class="nav-icon" aria-hidden="true">◇</span>Mis ahorros</button>
+          <button class="nav-link" data-view="diary"><span class="nav-icon" aria-hidden="true">♡</span>Diario emocional</button>
+          <button class="nav-link" data-view="focus"><span class="nav-icon" aria-hidden="true">◷</span>Tiempo de enfoque</button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="quote-card">
+            <span class="quote-mark">“</span>
+            <p>El progreso también es aprender a ir a tu ritmo.</p>
+            <span class="quote-byline">UN DÍA A LA VEZ</span>
+          </div>
+          <button class="profile-row" id="account-open" aria-label="Abrir perfil">
+            <div class="avatar">M</div>
+            <div class="profile-copy"><strong>Mi espacio</strong><span>Datos en este dispositivo</span></div>
+            <span class="profile-arrow" aria-hidden="true">›</span>
+          </button>
+          <button class="export-link" id="export-data" title="Exportar copia de tus datos">⇩ Exportar mis datos</button>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="mobile-menu icon-button" id="menu-toggle" aria-label="Abrir menú">☰</button>
+          <nav class="breadcrumb" aria-label="Ruta de navegación"><button class="breadcrumb-link" type="button" data-view="home">Mi espacio</button><span class="crumb-separator" aria-hidden="true">/</span><button class="breadcrumb-link breadcrumb-current" id="breadcrumb-current" type="button" data-view="home" aria-current="page">Resumen</button></nav>
+          <div class="topbar-actions">
+            <span class="today-label" id="today-label"></span>
+            <button class="button button-primary button-small" id="top-add"><span aria-hidden="true">＋</span> Añadir</button>
+          </div>
+        </header>
+        <section class="page-content" id="page-content" aria-live="polite"></section>
+        <footer class="app-footer"><span>MI RITMO, MIS PRIORIDADES.</span><span>Un día a la vez.</span></footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-heading"><div><span class="eyebrow" id="modal-eyebrow">NUEVO</span><h2 id="modal-title">Añadir a tu día</h2></div><button class="icon-button" id="modal-close" aria-label="Cerrar">×</button></div>
+        <form id="entry-form"></form>
+      </section>
+    </div>
+    <div class="account-backdrop" id="account-backdrop" hidden>
+      <section class="account-dialog" role="dialog" aria-modal="true" aria-labelledby="account-title">
+        <div class="modal-heading"><div><span class="eyebrow">TU PERFIL</span><h2 id="account-title">Perfil</h2></div><button class="icon-button" id="account-close" aria-label="Cerrar">×</button></div>
+        <div id="account-content"></div>
+      </section>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="auth-config.js?v=45" defer></script>
+    <script src="app-state.js?v=45" defer></script><script src="app-data.js?v=45" defer></script>
+    <script src="app-storage.js?v=45" defer></script><script src="app-diary-storage.js?v=45" defer></script>
+    <script src="app-diary-forms.js?v=45" defer></script><script src="app-diary-actions.js?v=45" defer></script>
+    <script src="app-render-core.js?v=45" defer></script><script src="app-render-finance.js?v=45" defer></script>
+    <script src="app-render-diary.js?v=45" defer></script><script src="app-render-focus.js?v=45" defer></script>
+    <script src="app-navigation.js?v=45" defer></script><script src="app-reminders.js?v=45" defer></script>
+    <script src="app-timer.js?v=45" defer></script><script src="app-forms.js?v=45" defer></script>
+    <script src="app-mutations.js?v=45" defer></script><script src="app-actions.js?v=45" defer></script>
+    <script src="app-events.js?v=45" defer></script><script src="app.js?v=45" defer></script>
+    <script src="auth-profile.js?v=45" defer></script><script src="auth-state.js?v=45" defer></script>
+    <script src="auth-cloud.js?v=45" defer></script><script src="auth-session.js?v=45" defer></script>
+    <script src="auth-submit.js?v=45" defer></script><script src="auth-account.js?v=45" defer></script>
+    <script src="auth-events.js?v=45" defer></script><script src="auth-form-events.js?v=45" defer></script>
+    <script src="auth.js?v=45" defer></script>
+  </body>
+</html>

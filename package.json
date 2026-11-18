@@ -1,0 +1,20 @@
+{
+  "name": "miritmo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mcp:start": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/mcp/start-mcp.ps1 -All",
+    "mcp:status": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/mcp/status-mcp.ps1",
+    "mcp:stop": "node -e \"console.log('Usa scripts\\\\mcp\\\\mcp.cmd stop <nombre>')\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "http-server": "^14.1.1"
+  }
+}

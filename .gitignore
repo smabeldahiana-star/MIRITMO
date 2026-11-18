@@ -1,0 +1,11 @@
+node_modules/
+playwright-report/
+test-results/
+test-output*.txt
+.vscode/
+.env
+.env.*
+supabase/.temp/
+ACCESO.md
+test-results*.txt
+test-results.json

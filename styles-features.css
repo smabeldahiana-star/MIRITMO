@@ -1,0 +1,42 @@
+.expense-dashboard-grid, .savings-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+.month-picker { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: 10px; }
+.month-picker .field-input { width: 145px; min-height: 32px; padding: 0 7px; font-size: 10px; }
+.expense-month-total { margin: 0 0 14px; color: var(--muted); font-size: 11px; text-transform: capitalize; }
+.expense-month-total strong { color: var(--ink); font-size: 15px; }
+.expense-category-list { display: grid; gap: 11px; }
+.expense-category-row { display: grid; gap: 5px; }
+.expense-category-heading { display: flex; justify-content: space-between; gap: 8px; font-size: 10px; }
+.expense-category-heading span { color: var(--muted); }
+.expense-category-meter, .budget-meter, .savings-meter { height: 7px; overflow: hidden; border-radius: 7px; background: #edf1ec; }
+.expense-category-meter span, .budget-meter span, .savings-meter span { height: 100%; display: block; border-radius: inherit; background: var(--green); }
+.budget-form { display: grid; gap: 8px; color: #627068; font-size: 10px; }
+.budget-form-row { display: flex; align-items: center; gap: 8px; }
+.budget-form-row .field-input { min-width: 0; flex: 1; }
+.budget-status { margin: 9px 0 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.budget-status.over { color: #b76d56; }
+.budget-meter { margin-top: 15px; }
+.budget-meter span.over { background: var(--coral); }
+.inline-checkbox { display: flex; align-items: center; gap: 8px; color: #627068; font-size: 11px; cursor: pointer; }
+.inline-checkbox input { accent-color: var(--green); }
+.reminder-note { margin-top: -7px; color: var(--muted); font-size: 9px; }
+.week-calendar { display: grid; gap: 8px; }
+.week-calendar-day { padding: 8px 0; border-top: 1px solid #f0f2ed; }
+.week-calendar-day:first-child { padding-top: 0; border-top: 0; }
+.week-calendar-select { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 6px; border: 0; border-radius: 4px; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }
+.week-calendar-select strong { font-size: 10px; text-transform: capitalize; }
+.week-calendar-select span { color: var(--muted); font-size: 9px; }
+.week-calendar-select.active { background: var(--green-soft); color: var(--green-dark); }
+.week-calendar-events { display: grid; gap: 4px; padding: 4px 7px 0; }
+.week-calendar-events span { overflow: hidden; color: #77827a; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.week-calendar-events span.done { color: #a0a8a1; text-decoration: line-through; }
+.week-calendar-events .week-calendar-empty, .week-calendar-events .week-calendar-more { color: #a0a8a1; font-style: italic; }
+.savings-card { min-width: 0; padding: 17px; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
+.savings-card-heading { display: flex; justify-content: space-between; gap: 10px; }
+.savings-card-heading h2, .diary-month-heading h2, .diary-lock-card h2 { display: flex; align-items: center; gap: 8px; }
+.savings-card-heading h2 { margin: 6px 0 13px; font: 700 14px "Manrope", sans-serif; }
+.savings-progress-label { display: flex; align-items: baseline; gap: 6px; margin-bottom: 7px; }
+.savings-progress-label strong { font: 700 17px "Manrope", sans-serif; }
+.savings-progress-label span { color: var(--muted); font-size: 10px; }
+.savings-meter span { background: var(--coral); transition: width .2s ease; }
+.savings-card p { margin: 8px 0 0; color: var(--muted); font-size: 10px; }
+@media (max-width: 760px) { .expense-dashboard-grid, .savings-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,47 @@
+= MiRitmo Java
+
+MiRitmo is a cross-platform app written in Java with Codename One. The `common`
+module contains the shared app and data-storage code; platform modules provide
+Android, iOS, and desktop builds. The earlier web prototype is separate and is
+not part of this Maven project.
+
+== Open in Visual Studio Code
+
+Open `MiRitmo-Java.code-workspace` from this folder in VS Code. This opens the
+Maven project root (not the parent web-prototype folder) and enables automatic
+Maven project import. Install the recommended Java and Maven extensions if
+prompted. After import completes, use *Java: Reload Projects* from the Command
+Palette if a source file is still marked as a non-project file.
+
+== GitHub MCP in VS Code
+
+The workspace includes `.vscode/mcp.json` for GitHub's remote MCP server. Use
+VS Code 1.101 or newer, open Copilot Chat in Agent mode, and start the GitHub
+server when prompted. VS Code handles authorization; no access token is stored
+in the workspace. Review and approve the server connection in VS Code.
+
+== Build
+
+Use JDK 17 and run the Maven wrapper from this folder:
+
+[source,powershell]
+----
+.\mvnw.cmd -pl common -am -DskipTests compile
+----
+
+Run the app in the Codename One simulator with:
+
+[source,powershell]
+----
+.\mvnw.cmd -pl javase -am -Psimulator -DskipTests -Dcodename1.platform=javase verify
+----
+
+Android and iOS packages are generated through Codename One's platform builds.
+Native iOS packaging additionally requires Apple's signing credentials and
+build services.
+
+== Private emotional diary
+
+Diary records are encrypted locally with AES-GCM. A key derived from the user's
+passphrase with PBKDF2-HMAC-SHA256 protects the records; the passphrase is not
+stored. Forgetting the passphrase means the diary cannot be recovered.
